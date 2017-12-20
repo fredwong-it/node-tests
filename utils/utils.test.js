@@ -7,14 +7,30 @@ it('should add two numbers', () => {
     expect(res).toBe(44).toBeA('number');
 });
 
+// async test case
+it('should async add two numbers', (done) => {
+    utils.asyncAdd(33, 11, (res) => {
+        expect(res).toBe(44).toBeA('number');
+        done();
+    }); 
+});
+
 it('should square a number', () => {
     var res = utils.square(3);
 
     expect(res).toBe(9).toBeA('number');
 });
 
+// async test case
+it('should async square a numbers', (done) => {
+    utils.asyncSquare(3, (res) => {
+        expect(res).toBe(9).toBeA('number');
+        done();
+    }); 
+});
+
 it('should expect some values', () => {
-    //expect(12).toNotBe(11);
+    expect(12).toNotBe(11);
     expect({name: 'Andrew'}).toEqual({name: 'Andrew'});
     expect({name: 'andrew'}).toNotEqual({name: 'Andrew'});
     expect([2,3,4]).toInclude(2);
